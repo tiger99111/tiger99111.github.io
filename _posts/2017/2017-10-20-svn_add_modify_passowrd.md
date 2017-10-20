@@ -1,9 +1,17 @@
+---
+layout: post
+title: VisualSVN Server 增加自助修改密码页面（支持2.1-3.6最新版）
+date: 2017-10-20 
+tags: 工具    
+---
+
+
 &ensp; &ensp; 如果不用VisualSVN客户端的话，VisualSVN Server只能在服务器端修改密码，对管理来说很不方便。
 &ensp; &ensp; 网上大部分给 VisualSVN 增加自助修改密码的补丁都是基于 2.5.x 版本的，也有几个用于 3.5.x/3.6.x 版本，多数还是用 cgi 方式，而且要么像 csdn 那样藏着掖着，要么也没个详细的说明。
 &ensp; &ensp; VisualSVN Server 帐号及密码保存在 htpasswd 文件里，除了 cgi 有以下几种修改方式：
 
-&ensp; &ensp;1、使用 VisualSVN Server Manager 管理工具重置密码。 
-&ensp; &ensp;2、通过 WMI 里用 PowerShell脚本更改。示例如下： 
+&ensp; &ensp;1、使用 VisualSVN Server Manager 管理工具重置密码.
+&ensp; &ensp;2、通过 WMI 里用 PowerShell脚本更改。示例如下:
 &ensp; &ensp; 来源：[http://stackoverflow.com/questions/4354356/visualsvn-server-password-change](http://stackoverflow.com/questions/4354356/visualsvn-server-password-change)
 ```
 $svnuser = Get-WmiObject -Namespace Root\VisualSVN `
@@ -16,8 +24,8 @@ $svnuser.SetPassword('123456')
 &ensp; &ensp;该方法是使用 php 页面来调用 htpasswd.exe 修改密码，方便用户通过网页修改，下面讲解配置要点。
 &ensp; &ensp;我使用的操作系统是 Windows Server 2008R2 x64，安装了 VisualSVN Server 3.5.6 x64 带 Apache 2.2.31 x64 的版本，默认安装路径。
 &ensp; &ensp;从 Apache 官方网站下载完整的 Apache 2.2.31 x64 版本，从里面提取一个文件 htpasswd.exe 放到:
-|C:\Program Files\VisualSVN Server\bin\htpasswd.exe|
-| ------------- :|
+| C:\Program Files\VisualSVN Server\bin\htpasswd.exe | 
+| - | :-: | -: | 
       
 &ensp; &ensp;Apache 2.2.x 要以 handler 方式加载 php 模块，只有 php 5.2-5.4 的 Thread Safe 版本才带 php5apache2_2.dll 文件，php 5.5 及之后的版本只能和 Apache 2.4.x 搭配了，所以选定 php 5.4 版本。
 &ensp; &ensp;<font color=##FF0000>**特别注意:**如果用 VisualSVN Server x64 就必须找 x64 的 php！</font>
