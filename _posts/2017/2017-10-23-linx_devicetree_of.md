@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "linux下devicetree中常用的of函数"
-date: 2017-08-25 
+date: 2017-10-23 
 description: "devicetree"
-tag: 博客 
+tag: 嵌入式驱动开发 
 ---   
 
 ###linux下devicetree中常用的of函数
@@ -111,3 +111,5 @@ int of_platform_populate(struct device_node *root,const struct of_device_id *mat
 struct platform_device* of_find_device_by_node(struct device_node *np)
 //根据device_node查找返回该设备对应的platform_device结构
 ```
+
+**本文转自**[http://blog.csdn.net/emsoften/article/details/45565401](http://blog.csdn.net/emsoften/article/details/45565401)
