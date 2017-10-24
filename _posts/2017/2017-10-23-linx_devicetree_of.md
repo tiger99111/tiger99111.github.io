@@ -1,115 +1,113 @@
 ---
 layout: post
-title: linuxÏÂdevicetreeÖĞ³£ÓÃµÄofº¯Êı
-date: 2017-10-23 
-tags: Ç¶ÈëÊ½linuxÇı¶¯¿ª·¢    
----
+title: "linuxä¸‹devicetreeä¸­å¸¸ç”¨çš„ofå‡½æ•°"
+date: 2017-08-25 
+description: "devicetree"
+tag: åšå®¢ 
+---   
 
-
-###linuxÏÂdevicetreeÖĞ³£ÓÃµÄofº¯Êı
+###linuxä¸‹devicetreeä¸­å¸¸ç”¨çš„ofå‡½æ•°
 
 ```
-//´Ódevice_nodeÖĞ»ñÈ¡ĞÅÏ¢£º
+//ä»device_nodeä¸­è·å–ä¿¡æ¯ï¼š
 int of_property_read_u8_array(const struct device_node *np, const char *propname,u8 *out_values, size_t sz);
 int of_property_read_u16_array(const struct device_node *np, const char *propname,u16 *out_values, size_t sz);
 int of_property_read_u32_array(const struct device_node *np, const char *propname,u32 *out_values, size_t sz);
-//´ÓÉè±¸½áµãnpÖĞ¶ÁÈ¡ÊôĞÔÃûÎªpropname£¬ÀàĞÍÎª8¡¢16¡¢32¡¢Î»ÕûĞÍÊı×éµÄÊôĞÔÖµ£¬²¢·ÅÈëout_values£¬szÖ¸Ã÷ÁËÒª¶ÁÈ¡µÄ¸öÊı¡£
+//ä»è®¾å¤‡ç»“ç‚¹npä¸­è¯»å–å±æ€§åä¸ºpropnameï¼Œç±»å‹ä¸º8ã€16ã€32ã€ä½æ•´å‹æ•°ç»„çš„å±æ€§å€¼ï¼Œå¹¶æ”¾å…¥out_valuesï¼ŒszæŒ‡æ˜äº†è¦è¯»å–çš„ä¸ªæ•°ã€‚
 
 static inline int of_property_read_u8(const struct device_node *np,const char *propname,u8 *out_value) 
 static inline int of_property_read_u16(const struct device_node *np,const char *propname,u8 *out_value) 
 static inline int of_property_read_u32(const struct device_node *np,const char *propname,u8 *out_value) 
-//´ÓÉè±¸½áµãnpÖĞ¶ÁÈ¡ÊôĞÔÃûÎªpropname£¬ÀàĞÍÎª8¡¢16¡¢32Î»µÄÊôĞÔÖµ£¬²¢·ÅÈëout_values¡£Êµ¼ÊÉÏÕâÀïµ÷ÓÃµÄ¾ÍÊÇszÎª1µÄXXX_arrayº¯Êı¡£
- 
+//ä»è®¾å¤‡ç»“ç‚¹npä¸­è¯»å–å±æ€§åä¸ºpropnameï¼Œç±»å‹ä¸º8ã€16ã€32ä½çš„å±æ€§å€¼ï¼Œå¹¶æ”¾å…¥out_valuesã€‚å®é™…ä¸Šè¿™é‡Œè°ƒç”¨çš„å°±æ˜¯szä¸º1çš„XXX_arrayå‡½æ•°ã€‚
+	 
 int of_property_read_u32_index(const struct device_node *np,const char*propname,u32 index, u32 *out_value)
-//´ÓÉè±¸½áµãnpÖĞ¶ÁÈ¡ÊôĞÔÃûÎªpropnameµÄÊôĞÔÖµÖĞµÚindex¸öu32ÊıÖµ¸øout_value
- 
+//ä»è®¾å¤‡ç»“ç‚¹npä¸­è¯»å–å±æ€§åä¸ºpropnameçš„å±æ€§å€¼ä¸­ç¬¬indexä¸ªu32æ•°å€¼ç»™out_value
+	 
 int of_property_read_u64(conststruct device_node *np, const char *propname,u64 *out_value)
-//´ÓÉè±¸½áµãnpÖĞ¶ÁÈ¡ÊôĞÔÃûÎªpropname£¬ÀàĞÍÎª64Î»µÄÊôĞÔÖµ£¬²¢·ÅÈëout_values
+//ä»è®¾å¤‡ç»“ç‚¹npä¸­è¯»å–å±æ€§åä¸ºpropnameï¼Œç±»å‹ä¸º64ä½çš„å±æ€§å€¼ï¼Œå¹¶æ”¾å…¥out_values
  
 int of_property_read_string(struct device_node *np, const char *propname,const char**out_string)
-//´ÓÉè±¸½áµãnpÖĞ¶ÁÈ¡ÊôĞÔÃûÎªpropnameµÄ×Ö·û´®ĞÍÊôĞÔÖµ
+//ä»è®¾å¤‡ç»“ç‚¹npä¸­è¯»å–å±æ€§åä¸ºpropnameçš„å­—ç¬¦ä¸²å‹å±æ€§å€¼
  
 int of_property_read_string_index(struct device_node *np, const char *propname,intindex, const char **output)
-//´ÓÉè±¸½áµãnpÖĞ¶ÁÈ¡ÊôĞÔÃûÎªpropnameµÄ×Ö·û´®ĞÍÊôĞÔÖµÊı×éÖĞµÄµÚindex¸ö×Ö·û´®
+//ä»è®¾å¤‡ç»“ç‚¹npä¸­è¯»å–å±æ€§åä¸ºpropnameçš„å­—ç¬¦ä¸²å‹å±æ€§å€¼æ•°ç»„ä¸­çš„ç¬¬indexä¸ªå­—ç¬¦ä¸²
  
 int of_property_count_strings(struct device_node *np, const char *propname)
-//´ÓÉè±¸½áµãnpÖĞ¶ÁÈ¡ÊôĞÔÃûÎªpropnameµÄ×Ö·û´®ĞÍÊôĞÔÖµµÄ¸öÊı
+//ä»è®¾å¤‡ç»“ç‚¹npä¸­è¯»å–å±æ€§åä¸ºpropnameçš„å­—ç¬¦ä¸²å‹å±æ€§å€¼çš„ä¸ªæ•°
  
 unsigned int irq_of_parse_and_map(struct device_node *dev, int index)
-//´ÓÉè±¸½ÚµãdevÖĞ¶ÁÈ¡µÚindex¸öirqºÅ
+//ä»è®¾å¤‡èŠ‚ç‚¹devä¸­è¯»å–ç¬¬indexä¸ªirqå·
  
 int of_irq_to_resource(struct device_node *dev, int index, struct resource *r)
-//´ÓÉè±¸½ÚµãdevÖĞ¶ÁÈ¡µÚindex¸öirqºÅ£¬²¢Ìî³äÒ»¸öirq×ÊÔ´½á¹¹Ìå
+//ä»è®¾å¤‡èŠ‚ç‚¹devä¸­è¯»å–ç¬¬indexä¸ªirqå·ï¼Œå¹¶å¡«å……ä¸€ä¸ªirqèµ„æºç»“æ„ä½“
  
 int of_irq_count(struct device_node *dev)
-//»ñÈ¡Éè±¸½ÚµãdevµÄirq¸öÊı
+//è·å–è®¾å¤‡èŠ‚ç‚¹devçš„irqä¸ªæ•°
 
 static inline bool of_property_read_bool(const struct device_node *np,const char *propname);
-//Èç¹ûÉè±¸½áµãnpº¬ÓĞpropnameÊôĞÔ£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse¡£Ò»°ãÓÃÓÚ¼ì²é¿ÕÊôĞÔÊÇ·ñ´æÔÚ¡£
+//å¦‚æœè®¾å¤‡ç»“ç‚¹npå«æœ‰propnameå±æ€§ï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›falseã€‚ä¸€èˆ¬ç”¨äºæ£€æŸ¥ç©ºå±æ€§æ˜¯å¦å­˜åœ¨ã€‚
  
 struct property* of_find_property(const struct device_node *np,const char *name,int *lenp)
-//¸ù¾İname²ÎÊı£¬ÔÚÖ¸¶¨µÄÉè±¸½áµãnpÖĞ²éÕÒÆ¥ÅäµÄproperty£¬²¢·µ»ØÕâ¸öproperty
+//æ ¹æ®nameå‚æ•°ï¼Œåœ¨æŒ‡å®šçš„è®¾å¤‡ç»“ç‚¹npä¸­æŸ¥æ‰¾åŒ¹é…çš„propertyï¼Œå¹¶è¿”å›è¿™ä¸ªproperty
  
 const void * of_get_property(const struct device_node *np, const char *name,int *lenp)
-//¸ù¾İname²ÎÊı£¬ÔÚÖ¸¶¨µÄÉè±¸½áµãnpÖĞ²éÕÒÆ¥ÅäµÄproperty£¬²¢·µ»ØÕâ¸öpropertyµÄÊôĞÔÖµ
+//æ ¹æ®nameå‚æ•°ï¼Œåœ¨æŒ‡å®šçš„è®¾å¤‡ç»“ç‚¹npä¸­æŸ¥æ‰¾åŒ¹é…çš„propertyï¼Œå¹¶è¿”å›è¿™ä¸ªpropertyçš„å±æ€§å€¼
 
 struct device_node* of_get_parent(const struct device_node *node)
-//»ñµÃnode½ÚµãµÄ¸¸½ÚµãµÄdevice node
+//è·å¾—nodeèŠ‚ç‚¹çš„çˆ¶èŠ‚ç‚¹çš„device node
 
 int of_device_is_compatible(const struct device_node *device,const char *compat);
-//ÅĞ¶ÏÉè±¸½áµãdeviceµÄcompatibleÊôĞÔÊÇ·ñ°üº¬compatÖ¸¶¨µÄ×Ö·û´®
+//åˆ¤æ–­è®¾å¤‡ç»“ç‚¹deviceçš„compatibleå±æ€§æ˜¯å¦åŒ…å«compatæŒ‡å®šçš„å­—ç¬¦ä¸²
 
-//´Óof_allnodesÖĞ²éÕÒĞÅÏ¢£º
+//ä»of_allnodesä¸­æŸ¥æ‰¾ä¿¡æ¯ï¼š
 struct device_node* of_find_node_by_path(const char *path)
-//¸ù¾İÂ·¾¶²ÎÊı£¬ÔÚÈ«¾ÖÁ´±íof_allnodesÖĞ£¬²éÕÒÆ¥ÅäµÄdevice_node
+//æ ¹æ®è·¯å¾„å‚æ•°ï¼Œåœ¨å…¨å±€é“¾è¡¨of_allnodesä¸­ï¼ŒæŸ¥æ‰¾åŒ¹é…çš„device_node
 
 struct device_node* of_find_node_by_name(struct device_node *from,const char *name)
-//Ôò¸ù¾İnameÔÚÈ«¾ÖÁ´±íof_allnodesÖĞ²éÕÒÆ¥ÅäµÄdevice_node,Èôfrom=NULL±íÊ¾´ÓÍ·¿ªÊ¼²éÕÒ
+//åˆ™æ ¹æ®nameåœ¨å…¨å±€é“¾è¡¨of_allnodesä¸­æŸ¥æ‰¾åŒ¹é…çš„device_node,è‹¥from=NULLè¡¨ç¤ºä»å¤´å¼€å§‹æŸ¥æ‰¾
 
 struct device_node* of_find_node_by_type(struct device_node *from,const char *type)
-//¸ù¾İÉè±¸ÀàĞÍÔÚÈ«¾ÖÁ´±íof_allnodesÖĞ²éÕÒÆ¥ÅäµÄdevice_node
+//æ ¹æ®è®¾å¤‡ç±»å‹åœ¨å…¨å±€é“¾è¡¨of_allnodesä¸­æŸ¥æ‰¾åŒ¹é…çš„device_node
 
-struct device_node * of_find_compatible_node(struct device_node *from, const char*type, const char£¬*compatible);
-//¸ù¾İcompatibleµÄÊôĞÔÖµÔÚÈ«¾ÖÁ´±íof_allnodesÖĞ²éÕÒÆ¥ÅäµÄdevice_node£¬´ó¶àÊıÇé¿öÏÂ£¬from¡¢typeÎªNULL¡£
+struct device_node * of_find_compatible_node(struct device_node *from, const char*type, const charï¼Œ*compatible);
+//æ ¹æ®compatibleçš„å±æ€§å€¼åœ¨å…¨å±€é“¾è¡¨of_allnodesä¸­æŸ¥æ‰¾åŒ¹é…çš„device_nodeï¼Œå¤§å¤šæ•°æƒ…å†µä¸‹ï¼Œfromã€typeä¸ºNULLã€‚
  
 struct device_node* of_find_node_with_property(struct device_node *from,const char *prop_name)
-//¸ù¾İ½ÚµãÊôĞÔµÄnameÔÚÈ«¾ÖÁ´±íof_allnodesÖĞ²éÕÒÆ¥ÅäµÄdevice_node
+//æ ¹æ®èŠ‚ç‚¹å±æ€§çš„nameåœ¨å…¨å±€é“¾è¡¨of_allnodesä¸­æŸ¥æ‰¾åŒ¹é…çš„device_node
  
 struct device_node* of_find_node_by_phandle(phandle handle)
-//¸ù¾İphandleÔÚÈ«¾ÖÁ´±íof_allnodesÖĞ²éÕÒÆ¥ÅäµÄdevice_node
+//æ ¹æ®phandleåœ¨å…¨å±€é“¾è¡¨of_allnodesä¸­æŸ¥æ‰¾åŒ¹é…çš„device_node
  
-//ÔÓ£º
+//æ‚ï¼š
 void __iomem* of_iomap(struct device_node *node, int index);
-//Í¨¹ıÉè±¸½áµãÖ±½Ó½øĞĞÉè±¸ÄÚ´æÇø¼äµÄ ioremap()£¬indexÊÇÄÚ´æ¶ÎµÄË÷Òı¡£ÈôÉè±¸½áµãµÄregÊôĞÔÓĞ¶à¶Î£¬¿ÉÍ¨¹ıindex±êÊ¾ÒªioremapµÄÊÇÄÄÒ»¶Î£¬Ö»ÓĞ1¶ÎµÄÇé¿ö£¬indexÎª0
+//é€šè¿‡è®¾å¤‡ç»“ç‚¹ç›´æ¥è¿›è¡Œè®¾å¤‡å†…å­˜åŒºé—´çš„ ioremap()ï¼Œindexæ˜¯å†…å­˜æ®µçš„ç´¢å¼•ã€‚è‹¥è®¾å¤‡ç»“ç‚¹çš„regå±æ€§æœ‰å¤šæ®µï¼Œå¯é€šè¿‡indexæ ‡ç¤ºè¦ioremapçš„æ˜¯å“ªä¸€æ®µï¼Œåªæœ‰1æ®µçš„æƒ…å†µï¼Œindexä¸º0
  
 unsigned long __init of_get_flat_dt_root(void)
-//ÓÃÀ´²éÕÒÔÚdtbÖĞµÄ¸ù½Úµã£¬ºÃÏñ·µ»ØµÄ¶¼ÊÇ0
+//ç”¨æ¥æŸ¥æ‰¾åœ¨dtbä¸­çš„æ ¹èŠ‚ç‚¹ï¼Œå¥½åƒè¿”å›çš„éƒ½æ˜¯0
 
 int of_alias_get_id(struct device_node *np, const char *stem)
-//»ñÈ¡½Úµãnp¶ÔÓ¦µÄaliasidºÅ
+//è·å–èŠ‚ç‚¹npå¯¹åº”çš„aliasidå·
  
 struct device_node* of_node_get(struct device_node *node)
 void of_node_put(struct device_node *node)
-//device node¼ÆÊıÔö¼Ó/¼õÉÙ
+//device nodeè®¡æ•°å¢åŠ /å‡å°‘
 
 const struct of_device_id* of_match_node(const struct of_device_id *matches,const struct device_node*node)
-//½«matchesÊı×éÖĞof_device_id½á¹¹µÄnameºÍtypeÓëdevice nodeµÄcompatibleºÍtypeÆ¥Åä£¬·µ»ØÆ¥Åä¶È×î¸ßµÄof_device_id½á¹¹
+//å°†matchesæ•°ç»„ä¸­of_device_idç»“æ„çš„nameå’Œtypeä¸device nodeçš„compatibleå’ŒtypeåŒ¹é…ï¼Œè¿”å›åŒ¹é…åº¦æœ€é«˜çš„of_device_idç»“æ„
 
-platform_deviceºÍresourceÏà¹Ø£º
+platform_deviceå’Œresourceç›¸å…³ï¼š
 int of_address_to_resource(struct device_node *dev, int index,struct resource *r)
-//¸ù¾İÉè±¸½ÚµãdevµÄregÊôĞÔÖµ£¬Ìî³ä×ÊÔ´½á¹¹Ìår¡£Index²ÎÊıÖ¸Ã÷ÁËÊ¹ÓÃregÊôĞÔÖĞµÚ¼¸¸öÊôĞÔÖµ£¬Ò»°ãÉèÖÃÎª0£¬±íÊ¾µÚÒ»¸ö¡£
+//æ ¹æ®è®¾å¤‡èŠ‚ç‚¹devçš„regå±æ€§å€¼ï¼Œå¡«å……èµ„æºç»“æ„ä½“rã€‚Indexå‚æ•°æŒ‡æ˜äº†ä½¿ç”¨regå±æ€§ä¸­ç¬¬å‡ ä¸ªå±æ€§å€¼ï¼Œä¸€èˆ¬è®¾ç½®ä¸º0ï¼Œè¡¨ç¤ºç¬¬ä¸€ä¸ªã€‚
 
 struct platform_device* of_device_alloc(struct device_node *np,const char *bus_id,struct device *parent)
-//¸ù¾İdevice node£¬bus_idÒÔ¼°¸¸½Úµã´´½¨¸ÃÉè±¸µÄplatform_device½á¹¹£¬Í¬Ê±»á³õÊ¼»¯ËüµÄresource³ÉÔ±¡£
+//æ ¹æ®device nodeï¼Œbus_idä»¥åŠçˆ¶èŠ‚ç‚¹åˆ›å»ºè¯¥è®¾å¤‡çš„platform_deviceç»“æ„ï¼ŒåŒæ—¶ä¼šåˆå§‹åŒ–å®ƒçš„resourceæˆå‘˜ã€‚
  
 int of_platform_bus_probe(struct device_node *root,const struct of_device_id *matches,struct device *parent)
-//±éÀúof_allnodesÖĞµÄ½Úµã¹Ò½Óµ½of_platform_bus_type×ÜÏßÉÏ,ÓÉÓÚ´ËÊ±of_platform_bus_type×ÜÏßÉÏ»¹Ã»ÓĞÇı¶¯,ËùÒÔ´ËÊ±²»½øĞĞÆ¥Åä
+//éå†of_allnodesä¸­çš„èŠ‚ç‚¹æŒ‚æ¥åˆ°of_platform_bus_typeæ€»çº¿ä¸Š,ç”±äºæ­¤æ—¶of_platform_bus_typeæ€»çº¿ä¸Šè¿˜æ²¡æœ‰é©±åŠ¨,æ‰€ä»¥æ­¤æ—¶ä¸è¿›è¡ŒåŒ¹é…
  
 int of_platform_populate(struct device_node *root,const struct of_device_id *matches,const struct of_dev_auxdata *lookup,struct device *parent)
-//±éÀúof_allnodesÖĞµÄËùÓĞ½Úµã£¬Éú³É²¢³õÊ¼»¯ËùÒÔ½ÚµãµÄplatform_device½á¹¹
+//éå†of_allnodesä¸­çš„æ‰€æœ‰èŠ‚ç‚¹ï¼Œç”Ÿæˆå¹¶åˆå§‹åŒ–æ‰€ä»¥èŠ‚ç‚¹çš„platform_deviceç»“æ„
 
 struct platform_device* of_find_device_by_node(struct device_node *np)
-//¸ù¾İdevice_node²éÕÒ·µ»Ø¸ÃÉè±¸¶ÔÓ¦µÄplatform_device½á¹¹
+//æ ¹æ®device_nodeæŸ¥æ‰¾è¿”å›è¯¥è®¾å¤‡å¯¹åº”çš„platform_deviceç»“æ„
 ```
-**±¾ÎÄ×ª×Ô**£º[http://www.myexception.cn/linux-unix/1910031.html](http://www.myexception.cn/linux-unix/1910031.html)
-
