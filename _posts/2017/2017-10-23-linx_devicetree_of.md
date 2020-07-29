@@ -6,7 +6,7 @@ description: "devicetree"
 tag: 嵌入式驱动开发 
 ---   
 
-###linux下devicetree中常用的of函数
+# linux下devicetree中常用的of函数
 
 ```
 //从device_node中获取信息：
