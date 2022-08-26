@@ -1,16 +1,16 @@
 # Basic
-title: Danny
+title: 麦麦麦先森
 subtitle: 微小站
 description: 欢迎来到我的微小站~
 # 头像里面的标题
-avatarTitle: Danny
+avatarTitle: 麦麦麦先森
 # 头像里面的描述
-avatarDesc: 码农 / 嵌入式开发 
+avatarDesc: 码农 / BSP软件开发 
 url: "http://tiger99111.github.io"
 
 # Comment
 comment:
-    disqus: Danny
+    disqus: 麦麦麦先森
     # uyan: 2143225  # 有言id,登录有言官网申请
 
 # Social

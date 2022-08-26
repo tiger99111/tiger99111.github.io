@@ -3,7 +3,7 @@ layout: page
 title: 关于我 
 ---
 
-嵌入式 BSP/应用开发者，做一名安静的码农。
+嵌入式 BSP/应用开发者，做一名有思想的码农。
 <p>
 在此微小站，分享个人的一些心得、技术、生活小趣。
 
@@ -24,7 +24,7 @@ Yocto
 嵌入式快速启动技术
 
 <p>
-Linux/Android BSP方向
+Linux/Android BSP软件开发
 
 <p>
 
